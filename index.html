@@ -1,22 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="index.css">
     <meta charset="UTF-8">
     <title>Title</title>
 
 </head>
 <body>
 
-<span id="output"></span>
+<main>
+        <h1 class="message" id="msg"></h1>
+
+        <div class="cont">
+            <h1>Вылетаю через: </h1> <span class="date" id="output2"></span>
+        </div>
+
+        <div class="cont">
+            <h1>Прилетаю через: </h1> <span class="date" id="output1"></span>
+        </div>
+</main>
 
 
 
 <script>
+    let message;
+    switch (Math.floor(Math.random() * 10) + 1) {
+        case 1:
+            message="Котик уже ждет меня?";
+            break;
+        case 2:
+            message="А я тебя люблю";
+            break;
+        case 3:
+            message="Не обновляй так часто, а то послания закончатся :)";
+            break;
+        case 4:
+            message="Скоро буду:3";
+            break;
+        case 5:
+            message="Тут написано, когда мы сможем няшиться под пледиком";
+            break;
+        case 6:
+            message="Ты мое солнышко <3";
+            break;
+        case 7:
+            message="Мурмяу";
+            break;
+        case 8:
+            message="Твои родители случайно не Google? Тогда откуда в тебе есть все, что я искал?";
+            break;
+        case 9:
+            message="Ты мне так и не рассказала, как можно быть такой милашкой?)";
+            break;
+        case 10:
+            message="Поскорей бы эти часики показывали 00:00:00";
+            break;
 
-    let dateN = new Date(Date.now());
-    outputP = document.getElementById("output");
+    }
+    document.getElementById("msg").innerHTML = message;
 
-    outputP.innerHTML = dateN.toString();
+    function clockTick() {
+        let dateN = new Date(Date.now());
+        let dateArrive = new Date("2022-11-11T07:45:30");
+        let diff = dateArrive - dateN;
+
+
+        let seconds = Math.floor((dateArrive - (dateN))/1000);
+        let minutes = Math.floor(seconds/60);
+        let hours = Math.floor(minutes/60);
+        let days = Math.floor(hours/24);
+
+        hours = hours-(days*24);
+        minutes = minutes-(days*24*60)-(hours*60);
+        seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
+
+        let outputP = document.getElementById("output1");
+
+        if (diff > 0) {
+            outputP.innerHTML = "" + days + "д, "  + hours + "ч, " + minutes + "м, " + seconds + "с";
+        } else {
+            outputP.innerHTML = "Прилетел";
+        }
+    }
+    setInterval(clockTick, 1000);
+    function clockTick2() {
+        let dateN = new Date(Date.now());
+        let dateArrive = new Date("2022-11-10T07:00:00");
+        let diff = dateArrive - dateN;
+
+
+
+        let seconds = Math.floor((dateArrive - (dateN))/1000);
+        let minutes = Math.floor(seconds/60);
+        let hours = Math.floor(minutes/60);
+        let days = Math.floor(hours/24);
+
+        hours = hours-(days*24);
+        minutes = minutes-(days*24*60)-(hours*60);
+        seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
+
+        let outputP = document.getElementById("output2");
+        if (diff > 0) {
+            outputP.innerHTML = "" + days + "д, "  + hours + "ч, " + minutes + "м, " + seconds + "с";
+        } else {
+            outputP.innerHTML = "прилетел";
+        }
+
+    }
+
+    // here we run the clockTick function every 1000ms (1 second)
+    setInterval(clockTick2, 1000);
 </script>
 
 </body>
