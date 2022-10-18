@@ -9,8 +9,12 @@ main {
     align-items: center;
     color: aliceblue;
     font-weight: 500;
+    overflow: hidden;
 }
-
+body {
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
 
 .date {
     border-radius: 8px;
