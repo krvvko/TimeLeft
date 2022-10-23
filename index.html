@@ -6,10 +6,28 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <style>
+        body {
+            background-size: cover;
+            background-position: 0 19%;
+        }
+        main {
+            backdrop-filter: blur(5px);
+        }
+
+        @media (orientation: portrait) {
+            body {
+                background-position: 75%;
+            }
+        }
+    </style>
+
 </head>
-<body>
+<body id="p2">
 
 <main>
+
+    <div class="container-all">
         <h1 class="message" id="msg"></h1>
 
         <div class="cont">
@@ -19,8 +37,14 @@
         <div class="cont">
             <h1>Прилетаю через: </h1> <span class="date" id="output1"></span>
         </div>
+    </div>
+
 </main>
 
+<script>
+    let a = Math.floor(Math.random()*2)+1;
+    document.getElementById("p2").style.backgroundImage = `url('src/img/${a}.jpg')`
+</script>
 
 
 <script>

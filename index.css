@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap');
 main {
     font-family: 'Nunito', sans-serif;
-    background-color: #131313;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -11,6 +10,16 @@ main {
     font-weight: 500;
     overflow: hidden;
 }
+.container-all {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(142, 167, 178, 0.27);
+}
+
+
 body {
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
@@ -19,7 +28,7 @@ body {
 .date {
     border-radius: 8px;
     padding: 4px 10px;
-    background-color: #2d2d2d;
+    background-color: rgba(53, 96, 112, 0.75);
     font-weight: 400;
 }
 .cont {
